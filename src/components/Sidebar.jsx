@@ -4,7 +4,7 @@ import { useState, useCallback } from "react"
  * unordered list.
  * @returns Component
  */
-export default function Sidebar() {
+export default function Sidebar({initialMenuItems}) {
   let [newMenuItem, setNewMenuItem] = useState("")
   // TODO: 2 Using a state hook, maintain the current menu items as an array state.
   // let [menuItems, setMenuItems] = useState(initialMenuItems)
@@ -23,8 +23,17 @@ export default function Sidebar() {
 
   // TODO: 1 Render inside the outer div an unordered list of the menu items, with each string in the array
   // its own item.
+
   return (
     <div>
+      <ul>
+        {initialMenuItems.map((item, index) => (
+          <li key={index}>
+            {item}
+          </li>
+        ))}
+      </ul>
+
       <input
         type="text"
         id="newMenuItemValue"
